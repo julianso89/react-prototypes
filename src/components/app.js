@@ -1,8 +1,29 @@
 import React from "react";
-import Table from './table';
+import Table from "./table";
 
-function App() {
-  return <h1>Functional Component</h1>;
-}
+export default () => {
+  const students = [
+    {
+      name: "Jul",
+      course: "Math",
+      grade: 90
+    },
+    {
+      name: "Sri",
+      course: "Bio",
+      grade: 95
+    },
+    {
+      name: "Mike",
+      course: "Marine",
+      grade: 100
+    }
+  ];
 
-export default App;
+  return (
+    <div className="container">
+      <h1>Student Grade Table</h1>
+      <Table data={students} />
+    </div>
+  );
+};

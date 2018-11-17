@@ -1,29 +1,26 @@
 import React from "react";
 
-function Table() {
+export default props => {
+  const tableRows = props.data.map((item, index) => {
+    return (
+      <tr key={index}>
+        <td>{item.name}</td>
+        <td>{item.course}</td>
+        <td>{item.grade}</td>
+      </tr>
+    );
+  });
+
   return (
     <table className="table">
-      <thead className="thead">
+      <thead className="thead-inverse">
         <tr>
           <th>Name</th>
           <th>Course</th>
           <th>Grade</th>
         </tr>
       </thead>
-      <tbody>
-        <tr>
-          <td>Kobe</td>
-          <td>Basketball</td>
-          <td>100</td>
-        </tr>
-        <tr>
-          <td>Michael</td>
-          <td>Golf</td>
-          <td>50</td>
-        </tr>
-      </tbody>
+      <tbody>{tableRows}</tbody>
     </table>
   );
-}
-
-export default Table;
+};
