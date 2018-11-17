@@ -14,7 +14,7 @@ class FormatTime extends Component {
         position: "relative",
         left: "50%",
         transform: "translate(-50%)",
-        width: "295px"
+        width: "383px"
       }
     };
   }
@@ -31,15 +31,28 @@ class FormatTime extends Component {
     });
   }
 
+  leadingZero(number) {
+    if (number < 10) {
+      return "0" + number;
+    } 
+      return number;
+    }
+  
+  trailingZero(number) {
+      if(number < 10){
+          return number + '0';
+      } 
+          return number;
+  }
+
   render() {
     const { hour, min, sec, ms } = this.state;
 
     return (
-      <div style={ this.state.timerStyle }>
-        {hour}:{min}:{sec}.{ms}
+      <div style={this.state.timerStyle}>
+        {this.leadingZero(hour)}:{this.leadingZero(min)}:{this.leadingZero(sec)}.{this.trailingZero(ms)}
       </div>
     );
   }
 }
-
 export default FormatTime;
