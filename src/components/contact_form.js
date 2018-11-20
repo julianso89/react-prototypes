@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Field from "./field";
 
 class ContactForm extends Component {
   constructor(props) {
@@ -6,7 +7,9 @@ class ContactForm extends Component {
     this.state = {
       form: {
         firstName: "",
-        lastName: ""
+        lastName: "",
+        phone: "",
+        email: ""
       }
     };
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -28,30 +31,38 @@ class ContactForm extends Component {
   }
 
   render() {
-    const { firstName, lastName } = this.state.form;
+    const { firstName, lastName, phone, email } = this.state.form;
 
     return (
       <form onSubmit={this.handleSubmit}>
-        <div className="form-group">
-          <label>First Name</label>
-          <input
-            onChange={this.handleInputChange}
-            value={firstName}
-            name="firstName"
-            type="text"
-            className="form-control"
-          />
-        </div>
-        <div className="form-group">
-          <label>Last Name</label>
-          <input
-            onChange={this.handleInputChange}
-            value={lastName}
-            name="lastName"
-            type="text"
-            className="form-control"
-          />
-        </div>
+        <Field
+          name="firstName"
+          label="First Name"
+          type="text"
+          value={firstName}
+          onChange={this.handleInputChange}
+        />
+        <Field
+          name="lastName"
+          label="Last Name"
+          type="text"
+          value={lastName}
+          onChange={this.handleInputChange}
+        />
+        <Field
+          name="email"
+          label="E-mail"
+          type="email"
+          value={email}
+          onChange={this.handleInputChange}
+        />
+        <Field
+          name="phone"
+          label="Phone"
+          type="phone"
+          value={phone}
+          onChange={this.handleInputChange}
+        />
         <button>Add Contact</button>
       </form>
     );
