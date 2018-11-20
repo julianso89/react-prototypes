@@ -18,7 +18,7 @@ class ContactForm extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    console.log("handle submit called, form is :", this.state.form);
+    this.props.add(this.state.form);
   }
 
   handleInputChange(event) {
