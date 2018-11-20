@@ -10,19 +10,28 @@ class ContactForm extends Component {
       }
     };
     this.handleInputChange = this.handleInputChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
+    console.log("handle submit called, form is :", this.state.form);
   }
 
   handleInputChange(event) {
     const { value, name } = event.target;
     const { form } = this.state;
     form[name] = value;
+    this.setState({
+      form: { ...form }
+    });
   }
 
   render() {
     const { firstName, lastName } = this.state.form;
 
     return (
-      <form>
+      <form onSubmit={this.handleSubmit}>
         <div className="form-group">
           <label>First Name</label>
           <input
@@ -43,6 +52,7 @@ class ContactForm extends Component {
             className="form-control"
           />
         </div>
+        <button>Add Contact</button>
       </form>
     );
   }
