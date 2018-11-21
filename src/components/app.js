@@ -1,13 +1,13 @@
 import React from "react";
 import { Route } from "react-router-dom";
-import Welcome from "./welcome";
 import Nav from "./nav";
+import Welcome from "./welcome";
+import OurMacarons from "./our-macarons";
 
-export default () => {
-  return (
-    <div className="container">
-      <Nav />
-      <Route path="/" component={Welcome} />
-    </div>
-  );
-};
+export default () => (
+  <div className="container">
+    <Nav />
+    <Route exact path="/" component={Welcome} />
+    <Route path="/our-macarons" component={OurMacarons} />
+  </div>
+);
