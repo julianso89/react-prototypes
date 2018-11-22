@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Movies from "./movies";
+import Movie from "./movie";
 
 class MovieContainer extends Component {
   render() {
@@ -8,7 +8,7 @@ class MovieContainer extends Component {
         <h2>Movie Container</h2>
         <Movie />
       </div>
-    );
+    )
   }
 }
 
