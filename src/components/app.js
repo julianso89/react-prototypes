@@ -1,4 +1,5 @@
 import React from 'react';
+import Clock from './clock';
 
 export default () => {
     return (
@@ -6,6 +7,7 @@ export default () => {
             <h1 className="text-center">
             Redux Clock! 
             </h1>
+            <Clock />
         </div>
     )
 }
